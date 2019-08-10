@@ -13,11 +13,11 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
-        $role = auth()->user()->role()->first()->name();
+        $role = auth()->user()->role()->first()->name;
 
         switch ($role) {
             case 'admin':
-                return reidrect()->route('admin.index');
+                return route('admin.index');
                 break;
         }
     }
