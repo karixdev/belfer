@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Middleware;
+use App\Exceptions\UserNotFoundException;
+use App\Exceptions\NotAdminException;
 
 use Closure;
 

@@ -43,9 +43,14 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo('App\Role');
     }
 
-    public function group()
+    public function groups()
     {
         return $this->belongsTo('App\Group');
+    }
+
+    public function school()
+    {
+        return $this->belongsTo('App\School');
     }
 
     public function getJWTIdentifier()

@@ -17,10 +17,11 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('username');
-            $table->string('first_name');
-            $table->string('surname');
+            $table->string('first_name')->nullable();
+            $table->string('surname')->nullable();
             $table->bigInteger('role_id')->unsigned();
             $table->bigInteger('group_id')->unsigned()->nullable();
+            $table->bigInteger('school_id')->unsigned()->nullable();
             $table->string('password');
             $table->rememberToken();
             
@@ -36,6 +37,11 @@ class CreateUsersTable extends Migration
             $table->foreign('group_id')
                   ->references('id')
                   ->on('groups')
+                  ->onDelete('set null');
+
+            $table->foreign('school_id')
+                  ->references('id')
+                  ->on('schools')
                   ->onDelete('set null');
 
         });
